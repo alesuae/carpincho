@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var velocity = Vector2()
 
 var SPEED = 200
@@ -13,11 +14,8 @@ func _ready():
 
 func _physics_process(delta):
 	
-	var move_input = Input.get_axis("move_left", "move_right")
+	var move_input = Input.get_axis("move_left2", "move_right2")
 	#velocity.x = move_input * SPEED
 	velocity.x = move_toward(velocity.x, move_input*SPEED, ACCELERATION)
 	velocity.y += GRAVITY * delta
 	move_and_slide(velocity, Vector2.UP)
-	
-	#if Input.is_action_just_pressed("jump"):
-	#	velocity.y = -JUMP_SPPED
